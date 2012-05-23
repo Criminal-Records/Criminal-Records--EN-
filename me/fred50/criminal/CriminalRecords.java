@@ -113,12 +113,12 @@ public class CriminalRecords extends JavaPlugin {
 				if (whatisit1.equalsIgnoreCase("view")) {
 					if(player.hasPermission("criminal.menu.view")){
 						correct1 = true;
-						if(!getConfig().contains("Players." + player.getName() + ".Infractions")){
-							getConfig().get("Players." + player.getName() + ".Infractions");
-							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player has " + getConfig().getInt("Players." + player.getName() +".Infractions") + "!");
+						if(!getConfig().contains("Players." + targetPlayer.getName() + ".Infractions")){
+							getConfig().get("Players." + targetPlayer.getName() + ".Infractions");
+							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player has " + getConfig().getInt("Players." + targetPlayer.getName() +".Infractions") + "!");
 						}else{
-							getConfig().get("Players." + player.getName() + ".Infractions");
-							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player has " + getConfig().getInt("Players." + player.getName() +".Infractions") + "!");
+							getConfig().get("Players." + targetPlayer.getName() + ".Infractions");
+							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player has " + getConfig().getInt("Players." + targetPlayer.getName() +".Infractions") + "!");
 						}
 					}else{
 						player.sendMessage(ChatColor.RED + "DONT HAVE ACCESS!");
@@ -130,13 +130,13 @@ public class CriminalRecords extends JavaPlugin {
 					if(player.hasPermission("criminal.menu.clear")){
 						correct1 = true;
 						
-						if (!getConfig().contains("Players." + player.getName() + ".Infractions")) {
-						    getConfig().addDefault("Players." + player.getName() + ".Infractions", 0);
+						if (!getConfig().contains("Players." + targetPlayer.getName() + ".Infractions")) {
+						    getConfig().addDefault("Players." + targetPlayer.getName() + ".Infractions", 0);
 							getConfig().options().copyDefaults(true);
 							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "You have successfully cleared " + targetPlayer.getName() + "'s account!");
 							saveConfig();
 						} else {
-							getConfig().set("Players." + player.getName() + ".Infractions", 0);
+							getConfig().set("Players." + targetPlayer.getName() + ".Infractions", 0);
 							getConfig().options().copyDefaults(true);
 							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "You have successfully cleared " + targetPlayer.getName() + "'s account!");
 							saveConfig();
@@ -152,21 +152,21 @@ public class CriminalRecords extends JavaPlugin {
 					if(player.hasPermission("criminal.menu.add")){
 						correct1 = true;
 						
-						if (!getConfig().contains("Players." + player.getName() + ".Infractions")) {
-						    getConfig().addDefault("Players." + player.getName() + ".Infractions", 1);
+						if (!getConfig().contains("Players." + targetPlayer.getName() + ".Infractions")) {
+						    getConfig().addDefault("Players." + targetPlayer.getName() + ".Infractions", 1);
 						    player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "You have successfully added a infraction to " + targetPlayer.getName() + "'s account!");
-						    getConfig().get("Players." + player.getName() + ".Infractions");
-						    player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player now has " + getConfig().getInt("Players." + player.getName() +".Infractions") + "!");
+						    getConfig().get("Players." + targetPlayer.getName() + ".Infractions");
+						    player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player now has " + getConfig().getInt("Players." + targetPlayer.getName() +".Infractions") + "!");
 							getConfig().options().copyDefaults(true);
 							saveConfig();
 						} else {
-							int current = getConfig().getInt("Players." + player.getName() + ".Infractions");
-							getConfig().set("Players." + player.getName() + ".Infractions", current + 1);
+							int current = getConfig().getInt("Players." + targetPlayer.getName() + ".Infractions");
+							getConfig().set("Players." + targetPlayer.getName() + ".Infractions", current + 1);
 							getConfig().options().copyDefaults(true);
 							saveConfig();
 							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "You have successfully added a infraction to " + targetPlayer.getName() + "'s account!");
-							getConfig().get("Players." + player.getName() + ".Infractions");
-							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player now has " + getConfig().getInt("Players." + player.getName() +".Infractions"));
+							getConfig().get("Players." + targetPlayer.getName() + ".Infractions");
+							player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.GOLD + "That player now has " + getConfig().getInt("Players." + targetPlayer.getName() +".Infractions"));
 						}
 					}else{
 						player.sendMessage(ChatColor.DARK_PURPLE + "[CR] " + ChatColor.RED + "DONT HAVE ACCESS!");
